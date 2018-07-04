@@ -39,6 +39,7 @@
                 p.setTezina(Double.parseDouble(request.getParameter("tezina")));
                 p.setOcena(Double.parseDouble(request.getParameter("ocena")));
                 p.setAktivna(Boolean.getBoolean(request.getParameter("aktivna")));
+                p.setSlikaUrl(request.getParameter("slika_url"));
                 
                 dao.saveOrUpdate(p);
             } else if (request.getMethod().equalsIgnoreCase("POST") && request.getParameter("action").equalsIgnoreCase("obrisi")) {
@@ -107,7 +108,7 @@
                 <textarea rows="4" cols="20" name="opis" placeholder="Unesite opis pice" required="true" class="form-control"></textarea><br/><br/>
             </div>
             <div class="form-group">
-               <input type="text" name="naziv" placeholder="Unesite sastojke pice" required class="form-control"/><br/><br/>
+               <input type="text" name="sastojci" placeholder="Unesite sastojke pice" required class="form-control"/><br/><br/>
             </div>
             <div class="form-group">
                 <input type="number" name="cena" placeholder="Unesite cenu pice" step="0.001" required class="form-control"/><br/><br/>
@@ -145,6 +146,7 @@
                 <th>Tezina</th>
                 <th>Ocena</th>
                 <th>Aktivna</th>
+                <th>Url slike</th>
             </tr>
         </thead>
         <tbody>
@@ -157,6 +159,7 @@
                 <td><% out.print(p.getTezina()); %></td>
                 <td><% out.print(p.getOcena()); %></td>
                 <td><% out.print(p.getAktivna()); %></td>
+                <td><% out.print(p.getSlikaUrl()); %></td>
                 
                 <td>
                     <form action="admin.jsp?action=izmeni"method="post">
@@ -168,6 +171,7 @@
                         <input type="hidden" name="tezina" value="<%out.print(p.getTezina());%>" />
                         <input type="hidden" name="ocena" value="<%out.print(p.getOcena());%>"/>
                         <input type="hidden" name="aktivna" value="<%out.print(p.getAktivna());%>" />
+                        <input type="hidden" name="slika_url" value="<%out.print(p.getSlikaUrl());%>" />
                         <button type="submit"  class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-pencil"></span>
                             Izmeni

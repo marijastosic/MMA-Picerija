@@ -8,14 +8,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
+<div>
 <div class="container marketing">
 
     <div>
 
         <%
             PicaDAO dao = new PicaDAOImpl();
-            List<Pica> lista = dao.readAll(Pica.class);
+//            List<Pica> lista = dao.readAll(Pica.class);
+            List<Pica> lista = dao.readAllAktivPica();
             for (int i = 0; i < lista.size(); i++) {
                 Pica p = lista.get(i);
 
@@ -41,5 +42,6 @@
 
 
     </div>
+</div>
 </div>
 <%@include file="template/footer.jsp"%>

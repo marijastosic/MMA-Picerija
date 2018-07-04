@@ -15,4 +15,5 @@ import java.util.List;
 public interface PicaDAO extends GenericDAO<Pica>{
     List<Pica> getByVrstaPice (String vrstaPice);
     void deletePicaByID(int id);
+    List<Pica> readAllAktivPica ();
 }

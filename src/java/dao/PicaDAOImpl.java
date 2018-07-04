@@ -54,6 +54,22 @@ public class PicaDAOImpl extends GenericDAOImpl<Pica> implements PicaDAO{
         }
     }
 
+    @Override
+    public List<Pica> readAllAktivPica() {
+       session = HibernateUtil.getSessionFactory().openSession();
+       List<Pica> lista = null;
+        try {
+            lista = session.createCriteria(Pica.class)
+                    .add(Restrictions.eq("aktivna", true)).list();
+
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return lista;
+    }
+
     
     
 }

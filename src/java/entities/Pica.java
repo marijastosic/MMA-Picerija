@@ -212,7 +212,9 @@ public class Pica implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Pica[ id=" + id + " ]";
+        return "Pica{" + "id=" + id + ", naziv=" + naziv + ", opis=" + opis + ", sastojci=" + sastojci + ", cena=" + cena + ", tezina=" + tezina + ", ocena=" + ocena + ", aktivna=" + aktivna + ", slikaUrl=" + slikaUrl + ", picaPorudzbinaList=" + picaPorudzbinaList + '}';
     }
+
+   
     
 }
